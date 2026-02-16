@@ -2,10 +2,6 @@
 <html lang="es">
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap"
-        rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrea & Mateo</title>
@@ -21,8 +17,8 @@
 
     <style>
         /* =========================
-   COLORES PRINCIPALES
-========================= */
+        COLORES PRINCIPALES
+        ========================= */
         :root {
             --verde-profundo: #1c2d24;
             --verde-suave: #2f4f3f;
@@ -32,8 +28,8 @@
         }
 
         /* =========================
-   RESET
-========================= */
+        RESET
+        ========================= */
         * {
             margin: 0;
             padding: 0;
@@ -49,8 +45,8 @@
         }
 
         /* =========================
-   TIPOGRAFÍA EDITORIAL
-========================= */
+        TIPOGRAFÍA
+        ========================= */
         .names {
             font-family: 'Great Vibes', cursive;
             font-size: 5.5rem;
@@ -83,8 +79,8 @@
         }
 
         /* =========================
-   SECCIONES
-========================= */
+        SECCIONES
+        ========================= */
         section {
             padding: 120px 10%;
             position: relative;
@@ -92,8 +88,8 @@
         }
 
         /* =========================
-   HERO MÁS MÁGICO
-========================= */
+        HERO
+        ========================= */
         .hero {
             background-image: url("hero2.jpeg");
             background-size: cover;
@@ -110,8 +106,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(28, 45, 36, 0.6),
-                    rgba(0, 0, 0, 0.4));
+            background: linear-gradient(rgba(28, 45, 36, 0.6), rgba(0, 0, 0, 0.4));
         }
 
         .hero-content {
@@ -133,8 +128,8 @@
         }
 
         /* =========================
-   BOTONES LUJO
-========================= */
+        BOTONES
+        ========================= */
         button {
             padding: 14px 35px;
             border: 1px solid var(--dorado);
@@ -153,8 +148,8 @@
         }
 
         /* =========================
-   CUENTA REGRESIVA
-========================= */
+        CUENTA REGRESIVA
+        ========================= */
         .countdown {
             background: linear-gradient(180deg, #f6f4ef, #ece7dc);
             font-size: 1.8rem;
@@ -162,15 +157,8 @@
         }
 
         /* =========================
-   TARJETAS DETALLES
-========================= */
-        section p strong {
-            color: var(--dorado);
-        }
-
-        /* =========================
-   FORMULARIO MÁS EDITORIAL
-========================= */
+        FORMULARIO
+        ========================= */
         input,
         select {
             padding: 14px;
@@ -191,8 +179,8 @@
         }
 
         /* =========================
-   GALERÍA MÁS REVISTA
-========================= */
+        GALERÍA
+        ========================= */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -213,45 +201,36 @@
         }
 
         /* =========================
-   MAPA
-========================= */
-        iframe {
-            border-radius: 25px;
-            margin-top: 40px;
+        FAQ ACORDEÓN
+        ========================= */
+        .faq-item {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            background: var(--dorado-suave);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: none;
             width: 100%;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 5px;
+            padding: 10px 15px;
+            background: #fff7e6;
+            border-left: 4px solid var(--dorado);
+            border-radius: 0 10px 10px 0;
         }
 
         /* =========================
-   REGALOS SECCIÓN ESPECIAL
-========================= */
-        section:nth-of-type(6) {
-            background: linear-gradient(180deg, #f8f6f1, #f1ede3);
-        }
-
-        /* =========================
-   FAQ
-========================= */
-        section:nth-of-type(7) p {
-            margin-bottom: 20px;
-        }
-
-        /* =========================
-   PARTÍCULAS MÁS MÁGICAS
-========================= */
-        #tsparticles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        /* =========================
-   RESPONSIVE PERFECTO
-========================= */
+        RESPONSIVE
+        ========================= */
         @media (max-width: 768px) {
-
             .names {
                 font-size: 3.5rem;
             }
@@ -277,7 +256,6 @@
 </head>
 
 <body>
-
     <div id="tsparticles"></div>
 
     <!-- HERO -->
@@ -285,7 +263,7 @@
         <div class="hero-content">
             <h1 class="names">Andrea & Mateo</h1>
             <p>21 Noviembre 2026</p>
-            <button onclick="document.getElementById('music').play()">✨ Activar Música</button>
+            <button id="musicButton">✨ Activar Música</button>
         </div>
     </section>
 
@@ -305,36 +283,28 @@
         <!-- MAPA -->
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.659652861119!2d-74.23408049999999!3d4.8283726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f7f7667ec9a47%3A0x2f7302c96af718a9!2sCASA%20ARAG%C3%93N!5e0!3m2!1ses!2sco!4v1771205839213!5m2!1ses!2sco"
-            width="600" height="450" style="border:0;" " width=" 100%" height="300" loading="lazy">
-        </iframe>
+            width="100%" height="300" style="border:0;" loading="lazy"></iframe>
     </section>
 
-    <!-- GALERIA -->
+    <!-- HISTORIA -->
     <section data-aos="fade-up">
         <h2>Nuestra Historia</h2>
-        <p></strong><br>Todo empezó en 2017… Primero fuimos amigas, y nos
-            dimos cuenta de que queríamos algo más cuando no podíamos dejar de hablar la una con la otra. ❤️
-            </strong><br>
-            </strong><br>En esos primeros días, cenábamos juntas todas las noches y veíamos películas. Yo le enseñé a
-            Mate sobre
+        <p>
+            <strong>Todo empezó en 2017…</strong> Primero fuimos amigas, y nos dimos cuenta de que queríamos algo más
+            cuando no podíamos dejar de hablar la una con la otra. ❤️<br><br>
+            En esos primeros días, cenábamos juntas todas las noches y veíamos películas. Yo le enseñé a Mate sobre
             cine, y él me abrió el mundo de los videojuegos. Entre risas y maratones de pantalla, nuestra complicidad
-            creció sin darnos cuenta.
-            </strong><br>
-            </strong><br>Nuestro primer viaje a Europa fue inolvidable: Grecia, una playa, un atardecer y… Mateo súper
-            nervioso.
+            creció sin darnos cuenta.<br><br>
+            Nuestro primer viaje a Europa fue inolvidable: Grecia, una playa, un atardecer y… Mateo súper nervioso.
             Entre risas y mientras grabábamos un video, nos dimos el “sí” y comenzó esta nueva etapa de nuestra
-            vida.
-            </strong><br>
-            </strong><br>En casa compartimos nuestro pequeño caos adorable: Yuki, Tora y Max, que hacen de cada día algo
-            especial.
-            Juntas hemos construido un hogar lleno de risas, juego y
-            complicidad, viajando, conociendo lugares nuevos y disfrutando cada momento.
-            </strong><br>
-            </strong><br>Ahora queremos celebrar este ritual de paso rodeadas de quienes significan tanto para nosotras,
-            las personas
-            que nos han visto crecer y acompañarnos. ¡Nos encantaría que sean parte de esta nueva aventura: nuestro
-            matrimonio!
+            vida.<br><br>
+            En casa compartimos nuestro pequeño caos adorable: Yuki, Tora y Max, que hacen de cada día algo especial.
+            Juntas hemos construido un hogar lleno de risas, juego y complicidad, viajando, conociendo lugares nuevos y
+            disfrutando cada momento.<br><br>
+            Ahora queremos celebrar este ritual de paso rodeadas de quienes significan tanto para nosotras. ¡Nos
+            encantaría que sean parte de esta nueva aventura: nuestro matrimonio!
         </p>
+
         <div class="grid">
             <img src="foto1.jpg">
             <img src="foto2.jpeg">
@@ -342,14 +312,12 @@
             <img src="foto5.jpeg">
             <img src="foto8.jpeg">
             <img src="foto10.jpg">
-
         </div>
     </section>
 
     <!-- RSVP -->
     <section data-aos="fade-up">
         <h2>Confirma tu asistencia</h2>
-
         <form action="https://formsubmit.co/andiejpardo@gmail.com" method="POST">
             <input type="text" name="Nombre" placeholder="Nombre completo" required>
             <input type="text" name="Restriccion alimenticia" placeholder="Restricción alimenticia (opcional)">
@@ -357,10 +325,8 @@
                 <option value="Sí">Sí asistiré</option>
                 <option value="No">No podré asistir</option>
             </select>
-
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
-
             <br>
             <button type="submit">Confirmar</button>
         </form>
@@ -377,56 +343,93 @@
     <!-- FAQ -->
     <section data-aos="fade-up">
         <h2>Preguntas Frecuentes</h2>
-        <p><strong>¿Código de vestimenta?</strong><br>Formal
-            Queremos verlos elegantes y listos para celebrar, así que vengan con su mejor look formal. Solo un pequeño
-            aviso: nada de blanco, champagne o tonos que puedan parecer blancos… ¡ese honor es solo de Andrea! 💖</p>
-        <p><strong>¿Puedo ir en carro?</strong><br>Sí, habrá parqueadero. Solo recuerda que hay un peaje en el camino.
-        </p>
-        <p><strong>¿Puedo llevar niños?</strong><br>No, por favor. Esta aventura es solo para adultos, ¡así todos
-            podemos disfrutar sin distracciones!</p>
-        <p><strong>¿Puedo llevar un invitado sorpresa?</strong><br>No, solo las personas que recibieron invitación.
-            Queremos que todos los presentes sean parte de nuestra historia. 💖</p>
-        <p><strong>¿Habrá transporte disponible?</strong><br>Sí, si no tienes cómo llegar o regresar, nosotras lo
-            organizamos. Punto de encuentro: pronto les contamos.</p>
-        <p><strong>¿A qué hora debo llegar?</strong><br>Puntualidad ante todo. La ceremonia empieza en punto, y si
-            llegas tarde… te perderás momentos especiales.</p>
-        <p><strong>¿Cuál es la fecha límite para confirmar asistencia (RSVP)?</strong><br>1 de julio. Marca esa fecha y
-            confirma tu asistencia para que todo salga perfecto.</p>
-        <p><strong>¿A quién contacto si tengo dudas?</strong><br>Escríbenos. Estamos felices de
-            ayudar con cualquier pregunta.</p>
 
-        <audio id="music" loop>
-            <source src="musica.mp3" type="audio/mpeg">
-        </audio>
+        <div class="faq-item">
+            <button class="faq-question">¿Código de vestimenta?</button>
+            <div class="faq-answer">Formal. Nada de blanco, champagne o tonos similares… ¡ese honor es solo de Andrea!
+                💖</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿Puedo ir en carro?</button>
+            <div class="faq-answer">Sí, habrá parqueadero. Solo recuerda que hay un peaje en el camino.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿Puedo llevar niños?</button>
+            <div class="faq-answer">No, por favor. Esta aventura es solo para adultos. 😄</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿Puedo llevar un invitado sorpresa?</button>
+            <div class="faq-answer">No, solo las personas que recibieron invitación. 💖</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿Habrá transporte disponible?</button>
+            <div class="faq-answer">Sí, si no tienes cómo llegar o regresar, nosotras lo organizamos. Punto de
+                encuentro: pronto les contamos.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿A qué hora debo llegar?</button>
+            <div class="faq-answer">Puntualidad ante todo. La ceremonia empieza en punto, y si llegas tarde… te perderás
+                momentos especiales.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿Cuál es la fecha límite para confirmar asistencia (RSVP)?</button>
+            <div class="faq-answer">1 de julio. Marca esa fecha y confirma tu asistencia para que todo salga perfecto.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">¿A quién contacto si tengo dudas?</button>
+            <div class="faq-answer">Escríbenos a nuestro correo o WhatsApp. 💌</div>
+        </div>
+    </section>
 
-        <script>
-            AOS.init({ duration: 1200, once: true });
+    <!-- AUDIO -->
+    <audio id="music" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
 
-            const weddingDate = new Date("Oct 20, 2026 16:00:00").getTime();
-            setInterval(function () {
-                const now = new Date().getTime();
-                const distance = weddingDate - now;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("timer").innerHTML =
-                    days + " días " + hours + " horas " + minutes + " minutos";
-            }, 1000);
-        </script>
+    <script>
+        // AOS
+        AOS.init({ duration: 1200, once: true });
 
-        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-        <script>
-            tsParticles.load("tsparticles", {
-                particles: {
-                    number: { value: 50 },
-                    color: { value: ["#ffffff", "#c6a75e"] },
-                    size: { value: 3 },
-                    move: { enable: true, speed: 0.6 },
-                    opacity: { value: 0.6 },
-                }
+        // Audio toggle
+        const music = document.getElementById('music');
+        const musicBtn = document.getElementById('musicButton');
+        musicBtn.addEventListener('click', () => {
+            if (music.paused) music.play();
+            else music.pause();
+        });
+
+        // Cuenta regresiva
+        const weddingDate = new Date("Nov 21, 2026 15:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("timer").innerHTML =
+                days + " días " + hours + " horas " + minutes + " minutos";
+        }, 1000);
+
+        // FAQ acordeón
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
             });
-        </script>
+        });
 
+        // tsParticles
+        tsParticles.load("tsparticles", {
+            particles: {
+                number: { value: 50 },
+                color: { value: ["#ffffff", "#c6a75e"] },
+                size: { value: 3 },
+                move: { enable: true, speed: 0.6 },
+                opacity: { value: 0.6 },
+            }
+        });
+    </script>
 </body>
 
 </html>
