@@ -2,37 +2,430 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Ana & Daniel - Nuestra Boda</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap"
         rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrea & Mateo</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <style>
+        /* =========================
+   COLORES PRINCIPALES
+========================= */
+        :root {
+            --verde-profundo: #1c2d24;
+            --verde-suave: #2f4f3f;
+            --dorado: #c6a75e;
+            --dorado-suave: #e6d3a3;
+            --fondo: #f6f4ef;
+        }
+
+        /* =========================
+   RESET
+========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--fondo);
+            color: var(--verde-profundo);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+   TIPOGRAFÍA EDITORIAL
+========================= */
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5.5rem;
+            letter-spacing: 3px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(198, 167, 94, 0.6);
+        }
+
+        h2 {
+            font-weight: 400;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: var(--verde-suave);
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            width: 60px;
+            height: 2px;
+            background: var(--dorado);
+            display: block;
+            margin: 15px auto 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* =========================
+   SECCIONES
+========================= */
+        section {
+            padding: 120px 10%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================
+   HERO MÁS MÁGICO
+========================= */
+        .hero {
+            background-image: url("hero2.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(28, 45, 36, 0.6),
+                    rgba(0, 0, 0, 0.4));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 2s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+   BOTONES LUJO
+========================= */
+        button {
+            padding: 14px 35px;
+            border: 1px solid var(--dorado);
+            background: transparent;
+            color: white;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.4s;
+            backdrop-filter: blur(5px);
+        }
+
+        button:hover {
+            background: var(--dorado);
+            color: black;
+        }
+
+        /* =========================
+   CUENTA REGRESIVA
+========================= */
+        .countdown {
+            background: linear-gradient(180deg, #f6f4ef, #ece7dc);
+            font-size: 1.8rem;
+            color: var(--verde-profundo);
+        }
+
+        /* =========================
+   TARJETAS DETALLES
+========================= */
+        section p strong {
+            color: var(--dorado);
+        }
+
+        /* =========================
+   FORMULARIO MÁS EDITORIAL
+========================= */
+        input,
+        select {
+            padding: 14px;
+            margin: 10px;
+            border-radius: 40px;
+            border: 1px solid var(--dorado);
+            width: 260px;
+            background: white;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--verde-suave);
+            box-shadow: 0 0 10px rgba(198, 167, 94, 0.4);
+        }
+
+        /* =========================
+   GALERÍA MÁS REVISTA
+========================= */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .grid img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 25px;
+            transition: 0.6s;
+        }
+
+        .grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* =========================
+   MAPA
+========================= */
+        iframe {
+            border-radius: 25px;
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        /* =========================
+   REGALOS SECCIÓN ESPECIAL
+========================= */
+        section:nth-of-type(6) {
+            background: linear-gradient(180deg, #f8f6f1, #f1ede3);
+        }
+
+        /* =========================
+   FAQ
+========================= */
+        section:nth-of-type(7) p {
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+   PARTÍCULAS MÁS MÁGICAS
+========================= */
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* =========================
+   RESPONSIVE PERFECTO
+========================= */
+        @media (max-width: 768px) {
+
+            .names {
+                font-size: 3.5rem;
+            }
+
+            section {
+                padding: 80px 25px;
+            }
+
+            input,
+            select {
+                width: 100%;
+            }
+
+            .grid img {
+                height: 250px;
+            }
+
+            h2 {
+                letter-spacing: 3px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="hero">
-        <div class="overlay">
-            <h1>Andrea & Mateo</h1>
-            <p>Nos casamos en el bosque</p>
-            <p>21 Noviembre 2026</p>
-        </div>
-    </header>
+    <div id="tsparticles"></div>
 
-    <section>
-        <h2>Detalles</h2>
-        <p>📍 Lago Escondido</p>
-        <p>🕊️ Ceremonia 4:00 PM</p>
-        <p>🌙 Recepción 6:00 PM</p>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="names">Andrea & Mateo</h1>
+            <p>21 Noviembre 2026</p>
+            <button onclick="document.getElementById('music').play()">✨ Activar Música</button>
+        </div>
     </section>
 
-    <section>
-        <h2>Confirmar Asistencia</h2>
+    <!-- CUENTA REGRESIVA -->
+    <section class="countdown" data-aos="fade-up">
+        <h2>Cuenta Regresiva</h2>
+        <div id="timer"></div>
+    </section>
+
+    <!-- DETALLES -->
+    <section data-aos="fade-up">
+        <h2>Detalles</h2>
+        <p><strong>Fecha:</strong> 21 Noviembre 2026</p>
+        <p><strong>Hora:</strong> 3:00 PM</p>
+        <p><strong>Lugar:</strong> Casa Aragon, KM 16 Autopísta Medellín, El Rosal, Cundinamarca</p>
+
+        <!-- MAPA -->
         <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfHY30PPE8cF0b4XVX8_vvtgITWCZnB5g99blLcIAK27KQ-Ng/viewform?embedded=true"
-            width="100%" height="600" frameborder="0">
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.659652861119!2d-74.23408049999999!3d4.8283726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f7f7667ec9a47%3A0x2f7302c96af718a9!2sCASA%20ARAG%C3%93N!5e0!3m2!1ses!2sco!4v1771205839213!5m2!1ses!2sco"
+            width="600" height="450" style="border:0;" " width=" 100%" height="300" loading="lazy">
         </iframe>
     </section>
+
+    <!-- GALERIA -->
+    <section data-aos="fade-up">
+        <h2>Nuestra Historia</h2>
+        <p></strong><br>Todo empezó en 2017… Primero fuimos amigas, y nos
+            dimos cuenta de que queríamos algo más cuando no podíamos dejar de hablar la una con la otra. ❤️
+            </strong><br>
+            </strong><br>En esos primeros días, cenábamos juntas todas las noches y veíamos películas. Yo le enseñé a
+            Mate sobre
+            cine, y él me abrió el mundo de los videojuegos. Entre risas y maratones de pantalla, nuestra complicidad
+            creció sin darnos cuenta.
+            </strong><br>
+            </strong><br>Nuestro primer viaje a Europa fue inolvidable: Grecia, una playa, un atardecer y… Mateo súper
+            nervioso.
+            Entre risas y mientras grabábamos un video, nos dimos el “sí” y comenzó esta nueva etapa de nuestra
+            vida.
+            </strong><br>
+            </strong><br>En casa compartimos nuestro pequeño caos adorable: Yuki, Tora y Max, que hacen de cada día algo
+            especial.
+            Juntas hemos construido un hogar lleno de risas, juego y
+            complicidad, viajando, conociendo lugares nuevos y disfrutando cada momento.
+            </strong><br>
+            </strong><br>Ahora queremos celebrar este ritual de paso rodeadas de quienes significan tanto para nosotras,
+            las personas
+            que nos han visto crecer y acompañarnos. ¡Nos encantaría que sean parte de esta nueva aventura: nuestro
+            matrimonio!
+        </p>
+        <div class="grid">
+            <img src="foto1.jpg">
+            <img src="foto2.jpeg">
+            <img src="foto3.jpeg">
+            <img src="foto5.jpeg">
+            <img src="foto8.jpeg">
+            <img src="foto10.jpg">
+
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section data-aos="fade-up">
+        <h2>Confirma tu asistencia</h2>
+
+        <form action="https://formsubmit.co/andiejpardo@gmail.com" method="POST">
+            <input type="text" name="Nombre" placeholder="Nombre completo" required>
+            <input type="text" name="Restriccion alimenticia" placeholder="Restricción alimenticia (opcional)">
+            <select name="Asistencia">
+                <option value="Sí">Sí asistiré</option>
+                <option value="No">No podré asistir</option>
+            </select>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+
+            <br>
+            <button type="submit">Confirmar</button>
+        </form>
+    </section>
+
+    <!-- REGALOS -->
+    <section data-aos="fade-up">
+        <h2>Regalos</h2>
+        <p>✨ Tu compañía es el mejor regalo ✨</p>
+        <p>Si deseas hacernos un obsequio, nos encantaría que nos ayudaras a comenzar nuestra nueva vida juntos:</p>
+        <p><strong>Transferencia:</strong> 0000 0000 0000</p>
+    </section>
+
+    <!-- FAQ -->
+    <section data-aos="fade-up">
+        <h2>Preguntas Frecuentes</h2>
+        <p><strong>¿Código de vestimenta?</strong><br>Formal
+            Queremos verlos elegantes y listos para celebrar, así que vengan con su mejor look formal. Solo un pequeño
+            aviso: nada de blanco, champagne o tonos que puedan parecer blancos… ¡ese honor es solo de Andrea! 💖</p>
+        <p><strong>¿Puedo ir en carro?</strong><br>Sí, habrá parqueadero. Solo recuerda que hay un peaje en el camino.
+        </p>
+        <p><strong>¿Puedo llevar niños?</strong><br>No, por favor. Esta aventura es solo para adultos, ¡así todos
+            podemos disfrutar sin distracciones!</p>
+        <p><strong>¿Puedo llevar un invitado sorpresa?</strong><br>No, solo las personas que recibieron invitación.
+            Queremos que todos los presentes sean parte de nuestra historia. 💖</p>
+        <p><strong>¿Habrá transporte disponible?</strong><br>Sí, si no tienes cómo llegar o regresar, nosotras lo
+            organizamos. Punto de encuentro: pronto les contamos.</p>
+        <p><strong>¿A qué hora debo llegar?</strong><br>Puntualidad ante todo. La ceremonia empieza en punto, y si
+            llegas tarde… te perderás momentos especiales.</p>
+        <p><strong>¿Cuál es la fecha límite para confirmar asistencia (RSVP)?</strong><br>1 de julio. Marca esa fecha y
+            confirma tu asistencia para que todo salga perfecto.</p>
+        <p><strong>¿A quién contacto si tengo dudas?</strong><br>Escríbenos a [correo o WhatsApp]. Estamos felices de
+            ayudar con cualquier pregunta.</p>
+
+        <audio id="music" loop>
+            <source src="musica.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            AOS.init({ duration: 1200, once: true });
+
+            const weddingDate = new Date("Oct 20, 2026 16:00:00").getTime();
+            setInterval(function () {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("timer").innerHTML =
+                    days + " días " + hours + " horas " + minutes + " minutos";
+            }, 1000);
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+        <script>
+            tsParticles.load("tsparticles", {
+                particles: {
+                    number: { value: 50 },
+                    color: { value: ["#ffffff", "#c6a75e"] },
+                    size: { value: 3 },
+                    move: { enable: true, speed: 0.6 },
+                    opacity: { value: 0.6 },
+                }
+            });
+        </script>
 
 </body>
 
