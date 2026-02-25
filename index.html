@@ -446,27 +446,39 @@
     </script>
 
     <script>
-        const form = document.getElementById("rsvpForm");
-        const successMessage = document.getElementById("successMessage");
+        document.addEventListener("DOMContentLoaded", function () {
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault(); // 🔥 evita redirección
+            const form = document.getElementById("rsvpForm");
+            const successMessage = document.getElementById("successMessage");
 
-            const formData = new FormData(form);
+            form.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-            fetch("https://formsubmit.co/ajax/andiejpardo@gmail.com", {
-                method: "POST",
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    form.style.display = "none";
-                    successMessage.style.display = "block";
-                    form.reset();
-                })
-                .catch(error => {
-                    alert("Hubo un error al enviar el formulario. Intenta nuevamente.");
-                });
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch("https://formsubmit.co/ajax/andiejpardo@gmail.com", {
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json'
+                        },
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        form.style.display = "none";
+                        successMessage.style.display = "block";
+                        form.reset();
+                    } else {
+                        alert("Hubo un error enviando el formulario.");
+                    }
+
+                } catch (error) {
+                    alert("Error de conexión. Intenta nuevamente.");
+                }
+            });
+
         });
     </script>
 </body>
