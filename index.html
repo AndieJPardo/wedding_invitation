@@ -319,26 +319,26 @@
     <section data-aos="fade-up">
         <h2>Confirma tu asistencia</h2>
 
-        <form id="rsvpForm" action="https://formsubmit.co/andiejpardo@gmail.com" method="POST">
+        <form id="rsvpForm">
             <input type="text" name="Nombre" placeholder="Nombre completo" required>
             <input type="text" name="Restriccion alimenticia" placeholder="Restricción alimenticia (opcional)">
+
             <select name="Asistencia">
                 <option value="Sí">Sí asistiré</option>
                 <option value="No">No podré asistir</option>
             </select>
 
             <input type="hidden" name="_captcha" value="false">
-            <!-- Quitamos la redirección -->
-            <input type="hidden" name="_next" value="">
 
             <br>
             <button type="submit">Confirmar</button>
         </form>
 
-        <!-- Mensaje de éxito -->
         <div id="successMessage" style="display:none; margin-top:30px;">
             <p>Tu confirmación ha sido recibida correctamente.</p>
         </div>
+
+
     </section>
 
     <!-- REGALOS -->
@@ -449,11 +449,24 @@
         const form = document.getElementById("rsvpForm");
         const successMessage = document.getElementById("successMessage");
 
-        form.addEventListener("submit", function () {
-            setTimeout(() => {
-                form.style.display = "none";
-                successMessage.style.display = "block";
-            }, 800);
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); // 🔥 evita redirección
+
+            const formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/andiejpardo@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    form.style.display = "none";
+                    successMessage.style.display = "block";
+                    form.reset();
+                })
+                .catch(error => {
+                    alert("Hubo un error al enviar el formulario. Intenta nuevamente.");
+                });
         });
     </script>
 </body>
