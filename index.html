@@ -318,18 +318,27 @@
     <!-- RSVP -->
     <section data-aos="fade-up">
         <h2>Confirma tu asistencia</h2>
-        <form action="https://formsubmit.co/andiejpardo@gmail.com" method="POST">
+
+        <form id="rsvpForm" action="https://formsubmit.co/andiejpardo@gmail.com" method="POST">
             <input type="text" name="Nombre" placeholder="Nombre completo" required>
             <input type="text" name="Restriccion alimenticia" placeholder="Restricción alimenticia (opcional)">
             <select name="Asistencia">
                 <option value="Sí">Sí asistiré</option>
                 <option value="No">No podré asistir</option>
             </select>
+
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://tusitio.com/gracias.html">
+            <!-- Quitamos la redirección -->
+            <input type="hidden" name="_next" value="">
+
             <br>
             <button type="submit">Confirmar</button>
         </form>
+
+        <!-- Mensaje de éxito -->
+        <div id="successMessage" style="display:none; margin-top:30px;">
+            <p>Tu confirmación ha sido recibida correctamente.</p>
+        </div>
     </section>
 
     <!-- REGALOS -->
@@ -433,6 +442,18 @@
                 move: { enable: true, speed: 0.6 },
                 opacity: { value: 0.6 },
             }
+        });
+    </script>
+
+    <script>
+        const form = document.getElementById("rsvpForm");
+        const successMessage = document.getElementById("successMessage");
+
+        form.addEventListener("submit", function () {
+            setTimeout(() => {
+                form.style.display = "none";
+                successMessage.style.display = "block";
+            }, 800);
         });
     </script>
 </body>
